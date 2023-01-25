@@ -24,9 +24,9 @@
 ### Write Statements
 ```html
 <div>
-	{% for item in items %}
-		<li> {{ item }} </li>
-	{% endfor %}
+   {% for item in items %}
+      <li> {{ item }} </li>
+   {% endfor %}
 </div>
 ```
 [Back To Top](#)
