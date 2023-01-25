@@ -15,9 +15,9 @@
 
 ### Write Expression
 ```html
-	<div>
-		<h2>Hello {{ name }}</h2>
-	</div>
+<div>
+	<h2>Hello {{ name }}</h2>
+</div>
 ```
 [Back To Top](#)
 
