@@ -1,8 +1,8 @@
 <!--<h1 align="center">Python Notes</h1>-->
 
-<h2 align="">
-<a href="#">Core Topics To Learn In Python</a>
-</h2>
+<h1 align="center">
+Python Notes
+</h1>
 
 <p id="funda"></p>
 
@@ -37,6 +37,8 @@
 
 ## `Advanced`
 * [Modules](#)
+* [Import Modules From Different Directory](#)
+* [Use Environment Variable]()
 * [Decorators](#Decorators)
 * [List Comprehension](#Comprehension)
 * [Map & Filter](#map)
@@ -64,7 +66,42 @@
 * [Json Module](#)
 * [Time Module](#)
 
+## `How To?`
+* [Send email]()
+
 ----
+
+
+<p id="importFromOtherDir"></p>
+
+### Import Module From Another Directory
+* **Method 1**
+```py
+import sys,os
+sys.path.insert(0, os.path.join(os.getcwd(),"MyModule"))
+
+# Now use import  ...
+```
+
+* **Method 2**
+```py
+export PYTHONPATH='path/to/directory'
+```
+
+<p id="useEnv"></p>
+
+### Use Environment Variable
+```py
+# Method 1
+from decouple import config
+uri = config("uri")
+
+# Method 2
+from dotenv import dotenv_values
+config = dotenv_values(".env") 
+# config --> rerurn dictionary data!
+
+```
 
 <p id="Decorators"></p>
 

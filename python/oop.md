@@ -4,7 +4,7 @@ Object Oriented Programming
 
 </h2>
 
-### `Core Concept Of OOP`
+<p id="index"></p>
 
 1. [Class](#)
    * [self & __init__](#)
@@ -41,6 +41,8 @@ print(Karim)
 
 ```
 
+[Back To Top](#index)
+
 ### Object
 * **
 ```py
@@ -57,6 +59,8 @@ Karim = Person('Karim',20)
 print(Karim)
 
 ```
+
+[Back To Top](#index)
 
 ### Class Method
 * ***it is used for access class from a class method!***
@@ -84,6 +88,8 @@ print(Student.id_number)
 
 ```
 
+[Back To Top](#index)
+
 ### Class Method As Constructor
 ```py
 class Student():
@@ -107,6 +113,8 @@ obj2 = Student.set_values('karim-20')
 print(obj2.name)
 ```
 
+[Back To Top](#index)
+
 ### Static Method
 * ***in a staticmethod (self) is not required!***
 ```py
@@ -123,6 +131,8 @@ obj = Student('john',20)
 obj.say_hi()
 ```
 
+[Back To Top](#index)
+
 ### Public,Protected,Private
 ```py
 class Person:
@@ -135,6 +145,8 @@ print(Person._apiUrl)
 print(Person._Person__isActive)
 
 ```
+
+[Back To Top](#index)
 
 ### Super & Overriding
 ```py
@@ -162,6 +174,8 @@ print(A.age)
 
 ```
 
+[Back To Top](#index)
+
 ### Single Inheritance
 ```py
 # Parent Class
@@ -181,6 +195,8 @@ class Student(Person):
 Rahim = Student('Rahim',22)
 print(Rahim.name)
 ```
+
+[Back To Top](#index)
 
 ### Multiple Inheritance
 * ***This means --> 1 class inherit Multiple-Class***
@@ -205,6 +221,8 @@ Rahim = Student('coding')
 print(Rahim.hobby)
 ```
 
+[Back To Top](#index)
+
 ### Multilevel Inheritance
 ```py
 class Parent:
@@ -227,6 +245,8 @@ print(A.eye_color)
 
 
 ```
+
+[Back To Top](#index)
 
 ### Operator Overloading and Dunder method
 * Dunder method --> `same as magic method`
@@ -256,6 +276,8 @@ print(repr(B))
 
 ```
 
+[Back To Top](#index)
+
 ### Abstruction
 ```py
 from abc import ABC,abstractmethod
@@ -274,7 +296,7 @@ A = Player()
 print(A.eye_color())
 
 ```
-
+[Back To Top](#index)
 
 ### Magic Method
 ```py
@@ -283,3 +305,5 @@ __gt__(item1,item2)
 __lt__()
 __eq__()
 ```
+
+[Back To Top](#index)
