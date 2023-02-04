@@ -13,6 +13,27 @@
 
 <p id="#"></p>
 
+### Extra
+```html
+<!--Use Loop Index-->
+{% for item in items %}
+   <li> {{ loop.index }} </li>
+{% endfor %}
+
+<!--Get Length Of Iterable-->
+{% if todos|length == 0 %}
+	--> do something
+	{% else %}
+	--> do something
+{% endif %}
+
+<!--Type Casting-->
+{% set id=data["_id"] | string() %}
+
+<!--Set Variable-->
+{% set name ="smith" %}
+```
+
 ### Write Expression
 ```html
 <div>
@@ -30,6 +51,19 @@
 </div>
 ```
 [Back To Top](#)
+
+
+### Use If,Else
+```html
+{% if data|length == 0 %}
+	<span>No Record Found</span>
+	{% else %}
+	<h2>Data Found... !</h2>
+{% endif %}
+```
+[Back To Top](#)
+
+
 
 ### Template Inheritance
 ```html

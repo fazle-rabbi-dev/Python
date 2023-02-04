@@ -6,7 +6,7 @@ Python Notes
 
 <p id="funda"></p>
 
-## `Fundamentals`
+### `Fundamentals`
 * [Variables](#)
 * [Operators](#)
 * [Comments](#)
@@ -27,7 +27,7 @@ Python Notes
 
 <p id="inter"></p>
 
-## `Intermediate`
+### `Intermediate`
 * [OOP](oop.md)
 * [File Handling](#)
 * [Error and exception handling](#)
@@ -35,10 +35,10 @@ Python Notes
 
 <p id="advanced"></p>
 
-## `Advanced`
+### `Advanced`
 * [Modules](#)
-* [Import Modules From Different Directory](#)
-* [Use Environment Variable]()
+* [Import Modules From Different Directory](#importFromOtherDir)
+* [Use Environment Variable](#useEnv)
 * [Decorators](#Decorators)
 * [List Comprehension](#Comprehension)
 * [Map & Filter](#map)
@@ -57,7 +57,7 @@ Python Notes
 
 <p id="module"></p>
 
-## `Built In Modules`
+### `Built In Modules`
 * [Os Module](#os)
 * [Request Module](#request)
 * [Pickle Module](#pickle)
@@ -66,7 +66,7 @@ Python Notes
 * [Json Module](#)
 * [Time Module](#)
 
-## `How To?`
+### `How To?`
 * [Send email]()
 
 ----

@@ -6,6 +6,7 @@ Flask Notes
 
 * [Flask App Structure](#Structure)
 * [Flask App](#App)
+* [Url Building](#urlBuilding)
 * [Json Response](#Json)
 * [Send Status Code](#Status)
 * [Set Cookie](#SetCookie)
@@ -22,9 +23,11 @@ Flask Notes
 * [Use .env](#.env)
 * [Jwt](#Jwt)
 * [Bcrypt](#Bcrypt)
+* [File Uploading](#fileUploading)
 * [Flask Mail](#Mail)
-* [Flask SQLite](#SQLite)
 * [Flask SQLAlchemy](#SQLAlchemy)
+* [Flask SQLite](#SQLite)
+* [Flask SQLite](#MySQL)
 
 <p id="Structure"></p>
 
@@ -58,6 +61,16 @@ if __name__ =='__main__':
 [Back To Top](#index)
 
 <p id="Json"></p>
+
+<p id="urlBuilding"></p>
+
+## Url Building
+```py
+# success is a function
+return redirect(url_for("success"))
+```
+
+[Back To Top](#index)
 
 ## Json Response
 ```py
@@ -114,6 +127,9 @@ def home():
 def get():  
     value = session["uname"]
     return "Session :"+value
+
+# for clear ession
+session.pop('key', None)
 
 if __name__ =='__main__':  
     app.run(host="localhost",port=7000,debug = True)
@@ -173,7 +189,7 @@ def search():
 ## Get Route Parameter
 ```py
 # here name is also called as slug
-@app.route('/search/<name>')  
+@app.route('/search/<string:name>')  
 def search(name):
 	if name:
 		return "Hello, "+name
@@ -196,6 +212,13 @@ def login():
 <p id="Error"></p>
 
 ## Error Handling
+* **400:** for bad requests
+* **401:** for unauthorized access
+* **403:** for forbidden
+* **404:** for not found
+* **406:** for not acceptable
+* **415:** for unsupported media types
+* **429:** for too many requests
 ```py
 # Page Not Found Error/404
 @app.errorhandler(404)
@@ -309,3 +332,169 @@ decoded_jwt = jwt.decode(encoded_jwt, "ilovecode", algorithms=["HS256"])
 
 [Back To Top](#index)
 
+<p id="Mail"></p>
+
+<p id="fileUploading"></p>
+
+## File Uploading
+```py
+import os
+from flask import Flask, flash, request, redirect, url_for, send_from_directory
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = os.path.join(os.getcwd(),'uploads')
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config["SECRET_KEY"] = "01isjkak"
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('download_file', name=filename))
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+    '''
+
+@app.route('/uploads/<name>')
+def download_file(name):
+    return send_from_directory(app.config["UPLOAD_FOLDER"], name)
+
+if __name__ == "__main__":
+	app.run(debug=True)
+```
+
+## Flask Mail
+```py
+from flask import *  
+from flask_mail import Mail
+
+# Initialize app Object
+app = Flask(__name__)  
+app.config.update(
+		MAIL_SERVER="smtp.gmail.com",
+		MAIL_PORT=465,
+		MAIL_USE_SSL=True,
+		MAIL_USERNAME= "",
+		MAIL_PASSWORD= ""
+	)
+mail = Mail(app)
+
+# Home Route
+@app.route('/')  
+def home():
+	# Send Email
+	mail.send_message("Title",sender="",recipients=[""],body="")
+	return jsonify({"Message":"Email send successful."})
+
+# Start App
+if __name__ =='__main__':  
+	app.run(debug = True)	
+```
+
+[Back To Top](#index)
+
+<p id="SQLAlchemy"></p>
+
+## Flask SQLAlchemy
+* What is SQLAlchemy?
+	> SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.
+* What is ORM?
+	> Object-Relational Mapping (ORM) is a technique that lets you query and manipulate data from a database using an object-oriented paradigm. When talking about ORM, most people are referring to a library that implements the Object-Relational Mapping technique, hence the phrase "an ORM".
+	> An ORM library is a completely ordinary library written in your language of choice that encapsulates the code needed to manipulate the data, so you don't use SQL anymore; you interact directly with an object in the same language you're using.
+* What is Flask-SQLAlchemy?
+	> Flask-SQLAlchemy is an extension for Flask that adds support for SQLAlchemy to your application. It simplifies using SQLAlchemy with Flask by setting up common objects and patterns for using those objects, such as a session tied to each web request, models, and engines.
+
+[Back To Top](#index)
+
+<p id="SQLite"></p>
+
+## Flask SQLite
+* ***pip install flask-sqlalchemy***
+```py
+from flask import *
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+app = Flask(__name__)  
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///todos.db" # dbname
+db.init_app(app)
+
+# Define Databse Model
+class Todos(db.Model):
+	sno = db.Column(db.Integer, primary_key=True)
+	title = db.Column(db.String, nullable=False)
+	desc = db.Column(db.String, nullable=False)
+	created_date = db.Column(db.DateTime, default=datetime.utcnow)
+	
+	def __init__(self,title,desc):
+		self.title = title
+		self.desc = desc
+		
+	def __repr__(self):
+		return f"Title:{self.title}"
+
+# Create Table
+with app.app_context():
+    db.create_all()
+
+#================================
+#	 CRUD --> Operation			 
+#================================
+
+# Create
+todo = Todos("Learn Python","From codewithharry in one month")
+db.session.add(todo)
+db.session.commit()
+
+# Read
+sno = 1 # id
+all_todos = Todos.query.all()
+one_todo = Todos.query.filter_by(sno=sno).first()
+
+# Update
+todo = Todos.query.filter_by(sno=sno).first()
+todo.title = "New Title"
+todo.desc = "This is description"
+db.session.commit()
+
+# Delete
+todo = Todos.query.filter_by(sno=sno).first()
+db.session.delete(todo)
+db.session.commit()
+```
+
+<p id="MySQL"></p>
+
+[Back To Top](#index)
+
+## Flask MySQL
+```py
+
+```
+
+[Back To Top](#index)

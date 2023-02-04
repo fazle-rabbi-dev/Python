@@ -6,24 +6,25 @@ Object Oriented Programming
 
 <p id="index"></p>
 
-1. [Class](#)
+1. [Class](#Class)
    * [self & __init__](#)
-   * [Class Method](#)
-   * [Class Method As Constructor](#)
-   * [Static Method](#)
-   * [Public,Protected,Private access specifiers](#)
-2. [Object](#)
+   * [Class Method](#ClassMethod)
+   * [Class Method As Constructor](#classMethodAsConstructor)
+   * [Static Method](#StaticMethod)
+   * [Public,Protected,Private access specifiers](#accessModifier)
+2. [Object](#Object)
 3. `Inheritance`
-   * [Super & Overriding](#)
-   * [Single/Hierarchical](#) 
-   * [Multiple](#) 
-   * [Multilevel](#) 
-   * [Operator Overloading & Dunder Method](#) 
-4. [Encapsulation](#)
-5. [Polymorphism](#)
-6. [Abstruction](#)
-7. [Magic Method](#)
+   * [Super & Overriding](#Super)
+   * [Single/Hierarchical](#singleInheritance) 
+   * [Multiple](#multipleInheritance) 
+   * [Multilevel](#multilevelInheritance) 
+   * [Operator Overloading & Dunder Method](#operatorOverloading) 
+4. `Abstruction`
+5. `Encapsulation`
+6. `Polymorphism`
+7. [Magic Method](#Magic)
 
+<p id="Class"></p>
 
 ### Class
 * *Class is a blueprint/template*
@@ -43,6 +44,8 @@ print(Karim)
 
 [Back To Top](#index)
 
+<p id="Object"></p>
+
 ### Object
 * **
 ```py
@@ -61,6 +64,8 @@ print(Karim)
 ```
 
 [Back To Top](#index)
+
+<p id="ClassMethod"></p>
 
 ### Class Method
 * ***it is used for access class from a class method!***
@@ -90,6 +95,8 @@ print(Student.id_number)
 
 [Back To Top](#index)
 
+<p id="classMethodAsConstructor"></p>
+
 ### Class Method As Constructor
 ```py
 class Student():
@@ -115,6 +122,8 @@ print(obj2.name)
 
 [Back To Top](#index)
 
+<p id="StaticMethod"></p>
+
 ### Static Method
 * ***in a staticmethod (self) is not required!***
 ```py
@@ -133,6 +142,8 @@ obj.say_hi()
 
 [Back To Top](#index)
 
+<p id="accessModifier"></p>
+
 ### Public,Protected,Private
 ```py
 class Person:
@@ -147,6 +158,8 @@ print(Person._Person__isActive)
 ```
 
 [Back To Top](#index)
+
+<p id="Super"></p>
 
 ### Super & Overriding
 ```py
@@ -176,6 +189,8 @@ print(A.age)
 
 [Back To Top](#index)
 
+<p id="singleInheritance"></p>
+
 ### Single Inheritance
 ```py
 # Parent Class
@@ -197,6 +212,8 @@ print(Rahim.name)
 ```
 
 [Back To Top](#index)
+
+<p id="multipleInheritance"></p>
 
 ### Multiple Inheritance
 * ***This means --> 1 class inherit Multiple-Class***
@@ -223,6 +240,8 @@ print(Rahim.hobby)
 
 [Back To Top](#index)
 
+<p id="multilevelInheritance"></p>
+
 ### Multilevel Inheritance
 ```py
 class Parent:
@@ -247,6 +266,8 @@ print(A.eye_color)
 ```
 
 [Back To Top](#index)
+
+<p id="operatorOverloading"></p>
 
 ### Operator Overloading and Dunder method
 * Dunder method --> `same as magic method`
@@ -278,6 +299,8 @@ print(repr(B))
 
 [Back To Top](#index)
 
+<p id="Abstruction"></p>
+
 ### Abstruction
 ```py
 from abc import ABC,abstractmethod
@@ -297,6 +320,8 @@ print(A.eye_color())
 
 ```
 [Back To Top](#index)
+
+<p id="Magic"></p>
 
 ### Magic Method
 ```py
