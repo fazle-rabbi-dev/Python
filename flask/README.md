@@ -332,8 +332,6 @@ decoded_jwt = jwt.decode(encoded_jwt, "ilovecode", algorithms=["HS256"])
 
 [Back To Top](#index)
 
-<p id="Mail"></p>
-
 <p id="fileUploading"></p>
 
 ## File Uploading
@@ -388,6 +386,10 @@ if __name__ == "__main__":
 	app.run(debug=True)
 ```
 
+[Back To Top](#index)
+
+<p id="Mail"></p>
+
 ## Flask Mail
 ```py
 from flask import *  
@@ -421,13 +423,13 @@ if __name__ =='__main__':
 <p id="SQLAlchemy"></p>
 
 ## Flask SQLAlchemy
-* What is SQLAlchemy?
-	> SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.
-* What is ORM?
-	> Object-Relational Mapping (ORM) is a technique that lets you query and manipulate data from a database using an object-oriented paradigm. When talking about ORM, most people are referring to a library that implements the Object-Relational Mapping technique, hence the phrase "an ORM".
-	> An ORM library is a completely ordinary library written in your language of choice that encapsulates the code needed to manipulate the data, so you don't use SQL anymore; you interact directly with an object in the same language you're using.
-* What is Flask-SQLAlchemy?
-	> Flask-SQLAlchemy is an extension for Flask that adds support for SQLAlchemy to your application. It simplifies using SQLAlchemy with Flask by setting up common objects and patterns for using those objects, such as a session tied to each web request, models, and engines.
+* `What is SQLAlchemy?`
+	<p>SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.</p>
+* `What is ORM?`
+	<p>Object-Relational Mapping (ORM) is a technique that lets you query and manipulate data from a database using an object-oriented paradigm. When talking about ORM, most people are referring to a library that implements the Object-Relational Mapping technique, hence the phrase "an ORM".
+	An ORM library is a completely ordinary library written in your language of choice that encapsulates the code needed to manipulate the data, so you don't use SQL anymore; you interact directly with an object in the same language you're using.</p>
+* `What is Flask-SQLAlchemy?`
+	<p>Flask-SQLAlchemy is an extension for Flask that adds support for SQLAlchemy to your application. It simplifies using SQLAlchemy with Flask by setting up common objects and patterns for using those objects, such as a session tied to each web request, models, and engines.</p>
 
 [Back To Top](#index)
 
