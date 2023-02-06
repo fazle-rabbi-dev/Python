@@ -1,10 +1,9 @@
+<img width="100%" src="https://user-images.githubusercontent.com/71178740/217034698-3d90e59e-8285-4714-becd-1849fa527f64.jpg" alt="What Can Do Python" />
+
 <p align="center">
-<h2 align="center">
-This repository contains Notes of Python and others technology related to Python
-</h2>
+Hi there, This repository contains Notes of Python and others technology related to Python
 </p> 
 
-<img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROmtdLw6SDK2Z02JNbQjRJ3BcJqxVOuUt00Q&usqp=CAU" alt="" />
 
 * <a href="/python/README.md"><p>Python</p></a>
 * <a href="/flask/README.md"><p>Flask</p></a>
