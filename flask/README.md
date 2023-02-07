@@ -6,6 +6,7 @@ Flask Notes
 
 * [Flask App Structure](#Structure)
 * [Flask App](#App)
+* [Setup Cors](https://flask-cors.corydolphin.com/en/latest/api.html#extension)
 * [Url Building](#urlBuilding)
 * [Json Response](#Json)
 * [Send Status Code](#Status)
