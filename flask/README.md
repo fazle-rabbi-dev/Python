@@ -6,7 +6,7 @@ Flask Notes
 
 * [Flask App Structure](#Structure)
 * [Flask App](#App)
-* [Setup Cors](https://flask-cors.corydolphin.com/en/latest/api.html#extension)
+* [Setup Cors](#cors)
 * [Url Building](#urlBuilding)
 * [Json Response](#Json)
 * [Send Status Code](#Status)
@@ -28,7 +28,7 @@ Flask Notes
 * [Flask Mail](#Mail)
 * [Flask SQLAlchemy](#SQLAlchemy)
 * [Flask SQLite](#SQLite)
-* [Flask SQLite](#MySQL)
+* [Flask MySQL](#MySQL)
 
 <p id="Structure"></p>
 
@@ -60,6 +60,23 @@ if __name__ =='__main__':
 ```
 
 [Back To Top](#index)
+
+<p id="cors"></p>
+
+## Flask Cors
+* **pip install flask-cors**
+* [Docs](https://flask-cors.corydolphin.com/en/latest/api.html#extension)
+```py
+from flask_cors import CORS,cross_origin
+
+# Initialize app Object
+app = Flask(__name__)  
+# Set cors
+CORS(app, resources=r'/api/*')
+
+```
+[Back To Top](#index)
+
 
 <p id="Json"></p>
 
@@ -496,7 +513,49 @@ db.session.commit()
 [Back To Top](#index)
 
 ## Flask MySQL
+* **pip install pymysql**
 ```py
+import pymysql
+from flask_sqlalchemy import SQLAlchemy
+
+# Configure SQLAlchemy With MySQL
+db = SQLAlchemy()
+app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{db_user_name}:{db_user_pass}@{host_name}/{db_name}"
+db.init_app(app)
+
+# Define Database Model
+class Users(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(25), nullable=False)
+	
+	def __init__(self,name,username,email,password,is_verified,otp,token):
+		self.name = name
+		
+	def __repr__(self):
+		return f"""
+		name:{self.name},
+		"""
+	
+# Create Table
+with app.app_context():
+    db.create_all()
+
+# Read Data
+AllPosts = Blogs.query.all()
+featured_posts = Blogs.query.filter(Blogs.featured_post.contains(1)).all()
+note = Notes.query.filter_by(username=username).first()
+notes = Notes.query.filter_by(username=username).all()
+# Read Some Column
+db.session.query(SomeModel.col1)
+Model.query(Model.col1,Model.col2)
+
+# usages: note.id  --> note is an class object
+
+# -----------
+# create
+# delete
+# update
+# ----------- View in sqlite !
 
 ```
 
