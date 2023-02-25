@@ -10,4 +10,3 @@ Hi there, This repository contains Notes of Python and others materials related 
 * <a href="/flask/README.md"><p>Flask</p></a>
 * <a href="/Jinja2/README.md"><p>Jinja2</p></a>
 
-<button>Flask MySQL</button>
