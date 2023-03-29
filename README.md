@@ -1,6 +1,6 @@
 <h1 align="center">PYTHON</h1> 
 <p align="center">
-Hi there, This repository contains Notes of Python and others materials related to python.
+This repository contains Notes of Python and others materials related to python.
 </p> 
 
 <!--<img width="100%" src="https://user-images.githubusercontent.com/71178740/217034698-3d90e59e-8285-4714-becd-1849fa527f64.jpg" alt="What Can Do Python" />-->
